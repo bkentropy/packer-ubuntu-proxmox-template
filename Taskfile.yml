@@ -10,7 +10,7 @@ vars:
   packer_args: '-var-file="./config.json"'
 
   ubuntu_18_04_iso_name: ubuntu-18.04.4-server-amd64.iso
-  ubuntu_18_04_iso_url: http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.4-server-amd64.iso
+  ubuntu_18_04_iso_url: https://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.6-server-amd64.iso
 
 tasks:
   init:
