@@ -88,12 +88,12 @@
 		{
 			"type": "shell-local",
 			"inline": [
-				"ssh root@{{user `proxmox_host`}} qm set {{user `vmid`}} --scsihw virtio-scsi-pci",
-				"ssh root@{{user `proxmox_host`}} qm set {{user `vmid`}} --ide2 {{user `datastore`}}:cloudinit",
-				"ssh root@{{user `proxmox_host`}} qm set {{user `vmid`}} --boot c --bootdisk scsi0",
-				"ssh root@{{user `proxmox_host`}} qm set {{user `vmid`}} --ciuser     {{ user `ssh_username` }}",
-				"ssh root@{{user `proxmox_host`}} qm set {{user `vmid`}} --cipassword {{ user `ssh_password` }}",
-				"ssh root@{{user `proxmox_host`}} qm set {{user `vmid`}} --vga std"
+				"ssh -i ~/.ssh/{{user `proxmox_ssh_key`}} root@{{user `proxmox_host`}} qm set {{user `vmid`}} --scsihw virtio-scsi-pci",
+				"ssh -i ~/.ssh/{{user `proxmox_ssh_key`}} root@{{user `proxmox_host`}} qm set {{user `vmid`}} --ide2 {{user `datastore`}}:cloudinit",
+				"ssh -i ~/.ssh/{{user `proxmox_ssh_key`}} root@{{user `proxmox_host`}} qm set {{user `vmid`}} --boot c --bootdisk scsi0",
+				"ssh -i ~/.ssh/{{user `proxmox_ssh_key`}} root@{{user `proxmox_host`}} qm set {{user `vmid`}} --ciuser {{ user `ssh_username` }}",
+				"ssh -i ~/.ssh/{{user `proxmox_ssh_key`}} root@{{user `proxmox_host`}} qm set {{user `vmid`}} --sshkey /root/.ssh/{{user `proxmox_ssh_key`}}.pub",
+				"ssh -i ~/.ssh/{{user `proxmox_ssh_key`}} root@{{user `proxmox_host`}} qm set {{user `vmid`}} --vga std"
 			]
 		}
 	]
